@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 
 import NavLink from "./ui/NavLink";
 import ThemeSwitcher from "./ThemeSwitcher";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
@@ -96,6 +97,7 @@ export default function Navigation() {
 
         <div className="flex items-center justify-center w-8 h-8">
           <ThemeSwitcher />
+          < LanguageSwitcher />
         </div>
       </nav>
     </header>
