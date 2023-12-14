@@ -1,7 +1,7 @@
 ---
-title: "Comment ajouter votre statut de déploiement de Render dans votre repo github avec Python"
+title: "Comment ajouter votre statut de déploiement de Render dans votre repo Github avec Python"
 publishedAt: "2023-11-20"
-summary: "Un aperçu rapide de la configuration du projet et de la stack technologique que j'ai utilisée."
+summary: "Un aperçu rapide de la configuration du projet et de la stack technologique que j'ai utilisé."
 tags:
   - Python
   - CI/CD
@@ -11,7 +11,7 @@ tags:
 shortTitle: Render API
 ---
 
-## Pourquoi ai-je démarrer ce projet?
+## Pourquoi ai-je démarré ce projet?
 
 En entamant le développement de mon application Render Deployment au cours du développement d'une autre application basée sur une API REST en Python, j'ai été motivé par la nécessité d'avoir un suivi transparent du statut de déploiement directement dans le référentiel GitHub.
 
@@ -33,7 +33,7 @@ Les sources de données proviennent des commits émits sur la branche main de n'
 
 ## Stack technologique
 
-Ce projet utilise FastAPI en Python 3.0. Il fait le lien entre les webhook de Render et les webhook de l'application Github afin de récupérer et transmettre le status de déploiement d'une application render dans la branch github.
+Ce projet utilise FastAPI en Python 3.0. Il fait le lien entre les webhooks de Render et les webhooks de l'application Github afin de récupérer et transmettre le statut de déploiement d'une application render dans la branch github.
 
 Le projet utilise Black et Flake8 pour le formatage du code. SonarCloud lui est utilisé pour éviter des vulnérabilités et scanner l'optimisation du code. 
 
@@ -84,7 +84,7 @@ def manage_deployment_status(data: Dict):
 
 ### 2. Récupération des informations 🧮
 
-Si la `pull_request` est `merged`, nous allons maintenant aller récupérer le status de déploiement sur l'API de Render afin de voir si elle est `success` ou `failure` 
+Si la `pull_request` est `merged`, nous allons maintenant aller récupérer le statut de déploiement sur l'API de Render afin de voir si elle est `success` ou `failure` 
 
 ```py showLineNumbers {5}
 def update_github_deployment_status(owner, repo, status, deployment_id, user_repo, github_deployment_id, service_id):
@@ -97,9 +97,9 @@ def update_github_deployment_status(owner, repo, status, deployment_id, user_rep
     create_github_deployment_status(owner, repo, new_status, deployment_id, user_repo, github_deployment_id)
 ```
 
-### 3. Assignation des status 📨
+### 3. Assignation des statuts 📨
 
-Je fais un mapping des status de Render vers les status de Github pour ensuite retourner à Github le status final de déploiement
+Je fais un mapping des statuts de Render vers les statuts de Github pour ensuite retourner à Github le statut final de déploiement
 
 ```py
 def get_github_status(render_status: str) -> str:
@@ -120,9 +120,9 @@ def get_github_status(render_status: str) -> str:
     return state_mapping.get(render_status, "error")
 ```
 
-### 4. Retour du status de déploiement à Github 📊
+### 4. Retour du statut de déploiement à Github 📊
 
-Une fois que nous avons le status final, nous pouvons renvoyer le status à Github
+Une fois que nous avons le statut final, nous pouvons renvoyer le statut à Github
 
 ```python showLineNumbers {10-17}
 def create_github_deployment_status(
@@ -152,7 +152,7 @@ def create_github_deployment_status(
 
 ## Finalité
 
-Alors ai-je atteint mon objectif initial ? Oui, le manque d'une application CI/CD de Render pour les déploiements est résolue avec mon application.
+Alors ai-je atteint mon objectif initial ? Oui, le manque d'une application CI/CD de Render pour les déploiements est résolu avec mon application.
 
 Ce projet répond à une toute petite partie des besoins et des possibilités entre Render et la CI/CD de Github, en revanche c'est un premier pas pour moi et pour d'autres utilisateurs qui souhaiterais ajouter leurs pierres à l'édifice.
 
