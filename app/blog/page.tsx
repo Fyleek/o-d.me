@@ -1,15 +1,5 @@
-import { Metadata } from "next";
 import { allPosts } from ".contentlayer/generated";
 import PostList from "./components/ui/PostList";
-
-// import Input from "./components/Input";
-// import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
-
-export const metadata: Metadata = {
-  title: "Blog | Oscar Decloquement",
-  description:
-    "Je suis un développeur full-stack qui aime découvrir de nouvelles technologies.",
-};
 
 export default function Blog() {
   const posts = allPosts.sort(
