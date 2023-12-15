@@ -36,10 +36,7 @@ export default function Stats() {
 
   return (
     <ul
-      className={clsx(
-        "space-y-2 animated-list",
-        theme === "terminal" ? "font-mono tracking-tight" : ""
-      )}
+      className={clsx("space-y-2 animated-list")}
     >
       <li className="transition-opacity">
         <Link
