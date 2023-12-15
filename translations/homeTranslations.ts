@@ -10,7 +10,7 @@ export const homeTranslations : Translations = {
         seeAll: "See All"
     },
     FR: {
-        subHome: "J'écris du code et j'apprends.",
+        subHome: "J'écris du code et j'apprends",
         description: "Bonjour, je suis Oscar Decloquement, un développeur qui adore créer des projets. J'essaie de me documenter au mieux sur les nouvelles technologies aussi bien professionellement que personnelement.",
         mail: "Envoyer un mail",
         contact: "Plus de contact",
