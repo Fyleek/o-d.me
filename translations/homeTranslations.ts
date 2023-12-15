@@ -1,4 +1,4 @@
-type Translations = Record<string, Record<string, string>>;
+import { Translations } from "./translations";
 
 export const homeTranslations : Translations = {
     EN: {
