@@ -1,7 +1,6 @@
 import { allPosts, Post as PostType } from ".contentlayer/generated";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import type { Metadata, ResolvingMetadata } from "next";
 
 import Mdx from "@/app/blog/components/ui/MdxWrapper";
 import ViewCounter from "@/app/blog/components/ui/ViewCounter";
@@ -24,46 +23,6 @@ type Props = {
   };
   searchParams: { [key: string]: string | string[] | undefined };
 };
-
-export async function generateMetadata(
-  { params, searchParams }: Props,
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
-  const post = allPosts.find((post) => post.slug === params.slug);
-
-  if (!post) {
-    throw new Error("Post not found");
-  }
-
-  const {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    image,
-    slug,
-  } = post;
-
-  const metadata: Metadata = {
-    title: `${title} | Oscar Decloquement`,
-    description,
-    openGraph: {
-      title: `${title} | Oscar Decloquement`,
-      description,
-      type: "article",
-      publishedTime,
-      url: `https://o-d.me/blog/${title}`,
-      images: [
-        {
-          url: `https://o-d.me/api/og?title=${title}`,
-          alt: title,
-        },
-      ],
-
-    },
-  };
-
-  return metadata;
-}
 
 export default async function Post({ params }: { params: any }) {
   const post = allPosts.find((post) => post.slug === params.slug);

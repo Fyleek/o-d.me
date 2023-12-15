@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Metadata } from "next";
 
 import Link from "@/components/ui/Link";
 import Section from "@/components/Section";
@@ -12,18 +11,12 @@ import arcosLogo from "public/work/arcos-logo.png";
 import motorcycle from "public/gallery/moto.jpg";
 import fpv from "public/gallery/fpv.png";
 
-export const metadata: Metadata = {
-  title: "À propos | Oscar Decloquement",
-  description:
-    "Je suis un développeur full-stack qui aime découvrir de nouvelles technologies.",
-};
-
 export default function About() {
   return (
     <div className="flex flex-col gap-16 md:gap-24">
       <div>
         <h1 className="animate-in text-3xl font-bold tracking-tight">
-          À propos de moi
+          À propos de moi 
         </h1>
         <p
           className="text-secondary animate-in"
