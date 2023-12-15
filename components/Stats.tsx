@@ -11,7 +11,7 @@ import FlipNumber from "@/components/FlipNumber";
 import fetcher from "@/lib/fetcher";
 import { addCommas } from "@/lib/utils";
 
-import { useLang } from "@/components/LanguageProvider";
+import { useLang } from "./LanguageProvider";
 import { statsTranslations } from "@/translations/statsTranslations";
 
 export function GitHub() {
