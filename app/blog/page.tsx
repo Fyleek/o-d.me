@@ -1,7 +1,13 @@
+"use client";
 import { allPosts } from ".contentlayer/generated";
 import PostList from "./components/ui/PostList";
 
+import { useLang } from "@/components/LanguageProvider";
+import { blogTranslations } from "@/translations/blogTranslations";
+
 export default function Blog() {
+  const { lang } = useLang();
+  const text = blogTranslations[lang];
   const posts = allPosts.sort(
     (a, b) =>
       new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
@@ -16,7 +22,7 @@ export default function Blog() {
             className="animate-in text-secondary"
             style={{ "--index": 2 } as React.CSSProperties}
           >
-            {posts.length} posts à propos de code, d&apos;outils, ...
+            {posts.length} {text.subTitle}
           </p>
         </div>
       </div>
