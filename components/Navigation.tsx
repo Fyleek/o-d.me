@@ -11,15 +11,20 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 
-const links = [
-  { label: "À propos", href: "/about" },
-  { label: "Blog", href: "/blog" },
-  { label: "Projets", href: "/projects" },
-];
+import { useLang } from "./LanguageProvider";
+import { navigationTranslations } from "@/translations/navigationTranslations";
 
 export default function Navigation() {
   const pathname = `/${usePathname().split("/")[1]}`; // active paths on dynamic subpages
   const { theme } = useTheme();
+  const { lang } = useLang();
+  const text = navigationTranslations[lang];
+
+  const links = [
+    { label: text.about, href: "/about" },
+    { label: "Blog", href: "/blog" },
+    { label: text.project, href: "/projects" },
+  ];
 
   return (
     <header className={clsx("relative md:sticky top-0 z-20 bg-primary")}>
