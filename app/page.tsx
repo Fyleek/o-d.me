@@ -7,7 +7,7 @@ import PostList from "./blog/components/ui/PostList";
 import Stats from "@/components/Stats";
 
 import { useLang } from "@/components/LanguageProvider";
-import { homeTranslations } from "@/content/home/homeTranslations";
+import { homeTranslations } from "@/translations/homeTranslations";
 
 import { ArrowUpRightIcon } from "@heroicons/react/20/solid";
 import profilePicture from "@/public/profile_picture.png";
