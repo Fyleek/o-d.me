@@ -1,8 +1,10 @@
+"use client";
 import Image from "next/image";
 import clsx from "clsx";
+import { useTheme } from "next-themes";
 
 type CustomImageProps = {
-  src: string;
+  src: string | {[key: string]: string};
   width: number;
   height: number;
   alt: string;
@@ -24,6 +26,13 @@ export default function CustomImage({
   priority,
   reset,
 }: CustomImageProps) {
+  const { theme } = useTheme();
+  let effectiveTheme = theme;
+  if (theme === "system") {
+    const prefersDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    effectiveTheme = prefersDarkTheme ? "dark" : "light";
+  }
+  const imageUrl = typeof src === 'object' ? src[effectiveTheme as keyof typeof src] || src['default'] : src;
   return (
     <div
       className={clsx(
@@ -36,7 +45,7 @@ export default function CustomImage({
         className={clsx("m-0 flex flex-col", breakout ? "gap-4" : "gap-2")}
       >
         <Image
-          src={src}
+          src={imageUrl}
           width={width}
           height={height}
           alt={alt}
