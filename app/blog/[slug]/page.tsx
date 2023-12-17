@@ -1,5 +1,4 @@
 "use client";
-// TODO hitsSlugs => NO Lang => Only slug without
 import { useEffect, useState } from "react";
 import { allPosts, Post as PostType } from ".contentlayer/generated";
 import Image from "next/image";
