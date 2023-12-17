@@ -50,9 +50,6 @@ export default function ThemeSwitcher() {
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ type: "spring", bounce: 0.3, duration: 0.3 }}
                     className="absolute right-0 p-2 mt-2 overflow-auto text-base origin-top-right shadow-lg max-h-60 w-42 rounded-xl bg-white dark:bg-black focus:outline-none sm:text-sm capitalize"
-                    style={
-                      theme === "terminal" ? { background: "#040605" } : {}
-                    }
                   >
                     {themes.map((theme) => (
                       <Listbox.Option
@@ -72,7 +69,7 @@ export default function ThemeSwitcher() {
                                 selected ? "font-medium" : "font-normal"
                               }`}
                             >
-                              {theme == "system" ? "Automatic" : theme}
+                              {theme === "system" ? "Automatique" : theme === "light" ? "Clair" : theme === "dark" ? "Sombre" : theme}
                             </span>
                             {selected ? (
                               <span className="absolute inset-y-0 left-0 flex items-center pl-3 dark:text-neutral-50">
