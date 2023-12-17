@@ -56,10 +56,10 @@ export const Project = defineDocumentType(() => ({
   contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
-    description: { type: "string", required: true },
+    description: {type: "json", required: true},
     time: { type: "string", required: true },
     url: { type: "string", required: false },
-    tags: { type: "list", required: false, of: { type: "string"}},
+    tags: { type: "json", required: false},
   },
   computedFields: projectComputedFields,
 }));
