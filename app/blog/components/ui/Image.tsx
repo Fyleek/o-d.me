@@ -5,6 +5,8 @@ import { useTheme } from "next-themes";
 
 import { useLang } from "@/components/LanguageProvider";
 
+import { useLang } from "@/components/LanguageProvider";
+
 type CustomImageProps = {
   src: string | {[key: string]: string};
   width: number;
