@@ -133,7 +133,7 @@ export default function About() {
               </Link>
               {text.thirdParagraphContentTwoDotTwo}
             </p>
-            <Workplaces items={workplaces} />
+            <Workplaces items={workplacesByLanguage} language={lang} />
           </div>
         </Section>
       </div>
@@ -141,26 +141,51 @@ export default function About() {
   );
 }
 
-const workplaces = [
-  {
-    title: "Développeur Java",
-    company: "Sopra Steria",
-    time: "2023 -",
-    imageSrc: soprasteriaLogo,
-    link: "https://www.soprasteria.fr/",
-  },
-  {
-    title: "Développeur Full Stack",
-    company: "Sopra Steria",
-    time: "2021 - 2023",
-    imageSrc: soprasteriaLogo,
-    link: "https://www.soprasteria.fr/",
-  },
-  {
-    title: "Développeur Full Stack",
-    company: "ARCOS",
-    time: "2020 - 2021",
-    imageSrc: arcosLogo,
-    link: "https://arcos-recouvrement.com/",
-  },
-];
+const workplacesByLanguage = {
+  "FR": [
+    {
+      title: "Développeur Java",
+      company: "Sopra Steria",
+      time: "2023 - Maintenant",
+      imageSrc: soprasteriaLogo,
+      link: "https://www.soprasteria.fr/",
+    },
+    {
+      title: "Développeur Full Stack",
+      company: "Sopra Steria",
+      time: "2021 - 2023",
+      imageSrc: soprasteriaLogo,
+      link: "https://www.soprasteria.fr/",
+    },
+    {
+      title: "Développeur Full Stack",
+      company: "ARCOS",
+      time: "2020 - 2021",
+      imageSrc: arcosLogo,
+      link: "https://arcos-recouvrement.com/",
+    },
+  ],
+  "EN": [
+    {
+      title: "Java Developer",
+      company: "Sopra Steria",
+      time: "2023 - Now",
+      imageSrc: soprasteriaLogo,
+      link: "https://www.soprasteria.fr/",
+    },
+    {
+      title: "Full Stack Developer",
+      company: "Sopra Steria",
+      time: "2021 - 2023",
+      imageSrc: soprasteriaLogo,
+      link: "https://www.soprasteria.fr/",
+    },
+    {
+      title: "Full Stack Developer",
+      company: "ARCOS",
+      time: "2020 - 2021",
+      imageSrc: arcosLogo,
+      link: "https://arcos-recouvrement.com/",
+    },
+  ]
+};
