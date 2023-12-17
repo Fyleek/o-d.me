@@ -8,10 +8,9 @@ import { blogTranslations } from "@/translations/blogTranslations";
 export default function Blog() {
   const { lang } = useLang();
   const text = blogTranslations[lang];
-  const posts = allPosts.sort(
-    (a, b) =>
-      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-  );
+  const posts = allPosts
+    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+    .filter((post) => post._id.includes(`/${lang.toLowerCase()}/`));
 
   return (
     <div className="flex flex-col gap-16 md:gap-24">

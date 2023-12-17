@@ -1,3 +1,6 @@
+"use client";
+// TODO hitsSlugs => NO Lang => Only slug without
+import { useEffect, useState } from "react";
 import { allPosts, Post as PostType } from ".contentlayer/generated";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -8,6 +11,8 @@ import PostList from "@/app/blog/components/ui/PostList";
 import Tags from "@/components/Tags";
 import Link from "@/components/ui/Link";
 import { formatDate } from "lib/formatdate";
+import { useLang } from "@/components/LanguageProvider";
+import { blogSlugTranslations } from "@/translations/blogSlugTranslations";
 
 import Avatar from "@/public/profile_picture.png";
 
@@ -24,11 +29,24 @@ type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-export default async function Post({ params }: { params: any }) {
-  const post = allPosts.find((post) => post.slug === params.slug);
+export default function Post({ params }: { params: any }) {
+  const { lang, setLang } = useLang();
+  setLang(params.slug.slice(-2));
+  const text = blogSlugTranslations[lang];
+  console.log("params",params);
+  const [post, setPost] = useState<PostType | null>(null);
+
+  useEffect(() => {
+    const foundPost = allPosts.find((post) => post.slug === params.slug);
+    if (!foundPost) {
+      notFound();
+    } else {
+      setPost(foundPost ?? null);
+    }
+  }, [params]);
 
   if (!post) {
-    notFound();
+    return <div>{text.loading}</div>
   }
 
   return (
@@ -97,7 +115,7 @@ export default async function Post({ params }: { params: any }) {
 
       <Tags tags={post.tags} />
 
-      <Link href="/blog">← Tous les Blogs</Link>
+      <Link href="/blog">← {text.allBlog}</Link>
     </div>
   );
 }
