@@ -7,6 +7,7 @@ import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
 
 const getSlug = (doc: any) => doc._raw.sourceFileName.replace(/\.mdx$/, "");
+const getSlugBlogImage = (doc: any) => doc._raw.sourceFileName.replace(/-(FR|EN)?\.mdx$/, "");
 
 const postComputedFields: ComputedFields = {
   slug: {
@@ -15,7 +16,7 @@ const postComputedFields: ComputedFields = {
   },
   image: {
     type: "string",
-    resolve: (doc) => `/blog/${getSlug(doc)}/image.png`,
+    resolve: (doc) => `/blog/${getSlugBlogImage(doc)}/image.png`,
   },
   og: {
     type: "string",
