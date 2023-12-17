@@ -22,6 +22,19 @@ export default function LanguageSwitcher() {
     { code: "FR", name: "Français", countryCode: "FR" },
   ];
 
+  const handleLanguageChange = (newLang: string) => {
+    setLang(newLang);
+
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname;
+      if (path.startsWith('/blog/')) {
+        const newPath = path.replace(/(EN|FR)$/, newLang);
+        console.log(newPath);
+        window.location.href = newPath;
+      }
+    }
+  }
+
   const flagStyle: CSSProperties = {
     width: "1.5em",
     height: "1.5em",
@@ -37,7 +50,7 @@ export default function LanguageSwitcher() {
 
   return (
     <>
-      <Listbox value={lang} onChange={(newLang) => setLang(newLang)}>
+      <Listbox value={lang} onChange={handleLanguageChange}>
         {({ open }) => (
           <div className="relative">
             <Listbox.Button className="relative w-8 h-8 cursor-default rounded-full flex items-center justify-center focus:outline-none">
