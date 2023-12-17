@@ -1,16 +1,19 @@
 import Image from "next/image";
 import clsx from "clsx";
 
+import { useLang } from "@/components/LanguageProvider";
+
 type CustomImageProps = {
   src: string;
   width: number;
   height: number;
   alt: string;
-  caption?: string;
+  caption?: {[key: string]: string};
   breakout?: boolean;
   rounded?: boolean;
   priority?: boolean;
   reset?: boolean;
+  lang: string;
 };
 
 export default function CustomImage({
@@ -24,6 +27,8 @@ export default function CustomImage({
   priority,
   reset,
 }: CustomImageProps) {
+  const { lang } = useLang();
+  const translatedCaption = caption ? caption[lang] : null;
   return (
     <div
       className={clsx(
@@ -48,14 +53,14 @@ export default function CustomImage({
               "overflow-hidden rounded-md bg-tertiary md:rounded-lg"
           )}
         />
-        {caption && (
+        {translatedCaption && (
           <figcaption
             className={clsx(
               "mx-auto my-2 max-w-md text-center text-xs font-medium leading-tight text-tertiary",
               breakout && "mx-auto w-full max-w-[700px] px-6 ",
             )}
           >
-            {caption}
+            {translatedCaption}
           </figcaption>
         )}
       </figure>
