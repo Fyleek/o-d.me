@@ -6,7 +6,7 @@ import { useTheme } from "next-themes";
 import { useLang } from "@/components/LanguageProvider";
 
 type CustomImageProps = {
-  src: string | {[key: string]: string};
+  src: string | {[themeKey: string]: { [langKey: string]: string }};
   width: number;
   height: number;
   alt: string;
@@ -31,12 +31,12 @@ export default function CustomImage({
 }: CustomImageProps) {
   const { theme } = useTheme();
   const { lang } = useLang();
-  let effectiveTheme = theme;
+  let effectiveTheme: string = theme ? theme : 'light';
   if (theme === "system") {
     const prefersDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     effectiveTheme = prefersDarkTheme ? "dark" : "light";
   }
-  const imageUrl = typeof src === 'object' ? src[effectiveTheme as keyof typeof src] || src['default'] : src;
+  let imageUrl = typeof src === 'string' ? src : src[effectiveTheme][lang];
   const translatedCaption = caption ? caption[lang] : null;
   return (
     <div
