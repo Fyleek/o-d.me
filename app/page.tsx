@@ -10,7 +10,7 @@ import { useLang } from "@/components/LanguageProvider";
 import { homeTranslations } from "@/translations/homeTranslations";
 
 import { ArrowUpRightIcon } from "@heroicons/react/20/solid";
-import profilePicture from "@/public/profile_picture.png";
+import profilePicture from "@/public/profile_picture.svg";
 
 export default function Home() {
   const { lang } = useLang();

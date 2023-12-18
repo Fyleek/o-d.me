@@ -16,11 +16,11 @@ const postComputedFields: ComputedFields = {
   },
   image: {
     type: "string",
-    resolve: (doc) => `/blog/${getSlugBlogImage(doc)}/image.png`,
+    resolve: (doc) => `/blog/${getSlugBlogImage(doc)}/image.svg`,
   },
   og: {
     type: "string",
-    resolve: (doc) => `/blog/${getSlug(doc)}/image.png`,
+    resolve: (doc) => `/blog/${getSlug(doc)}/image.svg`,
   },
 };
 
@@ -47,7 +47,7 @@ const projectComputedFields: ComputedFields = {
   },
   image: {
     type: "string",
-    resolve: (doc) => `/projects/${getSlug(doc)}/image.png`,
+    resolve: (doc) => `/projects/${getSlug(doc)}/image.svg`,
   },
 };
 
