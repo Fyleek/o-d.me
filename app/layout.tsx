@@ -8,6 +8,8 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Navigation from "@/components/Navigation";
 import { LangProvider } from "@/components/LanguageProvider";
 
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
@@ -40,6 +42,7 @@ export default function RootLayout({
           </ThemeProvider>
         </LangProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
