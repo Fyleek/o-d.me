@@ -16,12 +16,9 @@ export default function Home() {
   const { lang } = useLang();
   const text = homeTranslations[lang];
   const posts = allPosts
-    .sort(
-      (a, b) =>
-        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-    )
-    // 3 most recent
-    .filter((_, i) => i < 3);
+    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+    .filter((post) => post._id.includes(`/${lang.toLowerCase()}/`)) // Posts for the concerning language
+    .filter((_, i) => i < 3); // 3 most recent
 
   return (
     <div className="flex flex-col gap-16 md:gap-24">
