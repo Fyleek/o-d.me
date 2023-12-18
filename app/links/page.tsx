@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "@/components/ui/Link";
 import ConnectLinks from "@/components/ConnectLinks";
-import profilePicture from "public/profile_picture.png";
+import profilePicture from "public/profile_picture.svg";
 
 import { useLang } from "@/components/LanguageProvider";
 import { linksTranslations } from "@/translations/linksTranslations";

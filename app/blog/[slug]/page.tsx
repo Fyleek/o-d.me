@@ -13,7 +13,7 @@ import { formatDate } from "lib/formatdate";
 import { useLang } from "@/components/LanguageProvider";
 import { blogSlugTranslations } from "@/translations/blogSlugTranslations";
 
-import Avatar from "@/public/profile_picture.png";
+import Avatar from "@/public/profile_picture.svg";
 
 type PostProps = {
   post: PostType;

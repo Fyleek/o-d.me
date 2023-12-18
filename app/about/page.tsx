@@ -7,10 +7,10 @@ import ConnectLinks from "../../components/ConnectLinks";
 import Workplaces from "./components/Workplaces";
 import Gallery from "./components/Gallery";
 
-import soprasteriaLogo from "public/work/sopra-steria-logo.jpg";
-import arcosLogo from "public/work/arcos-logo.png";
-import motorcycle from "public/gallery/moto.jpg";
-import fpv from "public/gallery/fpv.png";
+import soprasteriaLogo from "public/work/sopra-steria-logo.svg";
+import arcosLogo from "public/work/arcos-logo.svg";
+import motorcycle from "public/gallery/moto.svg";
+import fpv from "public/gallery/fpv.svg";
 
 import { useLang } from "@/components/LanguageProvider";
 import { aboutTranslations } from "@/translations/aboutTranslations";
