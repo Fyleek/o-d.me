@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import Maintenance from "public/maintenance.png";
+import Maintenance from "public/maintenance.svg";
 
 export default function Deployments() {
   return (
