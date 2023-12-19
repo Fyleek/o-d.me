@@ -1,3 +1,4 @@
+"use client";
 import Image, { StaticImageData } from "next/image";
 
 import Maintenance from "public/maintenance.png";
