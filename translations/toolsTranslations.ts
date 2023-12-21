@@ -35,7 +35,7 @@ export const tools: Tool[] = [
             "FR": "Éditeur de code multiplateforme avec extensions variées",
             "EN": "Multi-platform code editor with various extensions"
         },
-        "image": "public/tools/ide/vscode.svg",
+        "image": "tools/vscode.svg",
         "link": "https://code.visualstudio.com/"
     },
     {
@@ -48,7 +48,7 @@ export const tools: Tool[] = [
             "FR": "IDE Python avec support étendu pour frameworks web",
             "EN": "Python IDE with extended support for web frameworks"
         },
-        "image": "public/tools/ide/pycharm.svg",
+        "image": "tools/pycharm.svg",
         "link": "https://www.jetbrains.com/pycharm/"
     },
     {
@@ -61,7 +61,7 @@ export const tools: Tool[] = [
             "FR": "Éditeur de texte élégant pour code et prose",
             "EN": "Elegant text editor for code and prose"
         },
-        "image": "public/tools/ide/sublimtxt.svg",
+        "image": "tools/sublimtxt.svg",
         "link": "https://www.sublimetext.com/"
     },
     {
@@ -74,7 +74,7 @@ export const tools: Tool[] = [
             "FR": "IDE Apple pour développement macOS et iOS",
             "EN": "Apple IDE for macOS and iOS development"
         },
-        "image": "public/tools/ide/xcode.svg",
+        "image": "tools/xcode.svg",
         "link": "https://developer.apple.com/xcode/"
     },
     {
@@ -87,7 +87,7 @@ export const tools: Tool[] = [
             "FR": "IDE officiel pour développement d'applications Android",
             "EN": "Official IDE for Android app development"
         },
-        "image": "public/tools/ide/androidStudio.svg",
+        "image": "tools/androidstudio.svg",
         "link": "https://developer.android.com/studio"
     },
     {
@@ -100,7 +100,7 @@ export const tools: Tool[] = [
             "FR": "IDE pour PHP, avec support pour HTML5, CSS, JS",
             "EN": "IDE for PHP, with support for HTML5, CSS, JS"
         },
-        "image": "public/tools/ide/PhpStorm.svg",
+        "image": "tools/phpstorm.svg",
         "link": "https://www.jetbrains.com/phpstorm/"
     },
     {
@@ -113,7 +113,7 @@ export const tools: Tool[] = [
             "FR": "IDE pour JavaScript moderne et frameworks web",
             "EN": "IDE for modern JavaScript and web frameworks"
         },
-        "image": "public/tools/ide/WebStorm.svg",
+        "image": "tools/webstorm.svg",
         "link": "https://www.jetbrains.com/webstorm/"
     },
     {
@@ -126,7 +126,7 @@ export const tools: Tool[] = [
             "FR": "Éditeur de texte modulable pour programmation efficace",
             "EN": "Flexible text editor for efficient programming"
         },
-        "image": "public/tools/ide/vim.svg",
+        "image": "tools/vim.svg",
         "link": "https://www.vim.org/"
     },
     {
@@ -139,7 +139,7 @@ export const tools: Tool[] = [
             "FR": "Système de contrôle de version distribué",
             "EN": "Distributed version control system"
         },
-        "image": "public/tools/colab/git.svg",
+        "image": "tools/git.svg",
         "link": "https://git-scm.com/"
     },
     {
@@ -152,7 +152,7 @@ export const tools: Tool[] = [
             "FR": "Plateforme de développement collaboratif pour héberger des projets",
             "EN": "Collaborative development platform for hosting projects"
         },
-        "image": "public/tools/colab/github.svg",
+        "image": "tools/github.svg",
         "link": "https://github.com/"
     },
     {
@@ -165,7 +165,7 @@ export const tools: Tool[] = [
             "FR": "Plateforme web pour la gestion de version et CI/CD",
             "EN": "Web platform for version control and CI/CD"
         },
-        "image": "public/tools/colab/gitlab.svg",
+        "image": "tools/gitlab.svg",
         "link": "https://about.gitlab.com/"
     },
     {
@@ -178,7 +178,7 @@ export const tools: Tool[] = [
             "FR": "Plateforme de conteneurisation pour le développement logiciel",
             "EN": "Containerization platform for software development"
         },
-        "image": "public/tools/devops/docker.svg",
+        "image": "tools/docker.svg",
         "link": "https://www.docker.com/"
     },
     {
@@ -191,7 +191,7 @@ export const tools: Tool[] = [
             "FR": "Plateforme d'application containerisée basée sur Kubernetes",
             "EN": "Containerized application platform based on Kubernetes"
         },
-        "image": "public/tools/devops/openshift.svg",
+        "image": "tools/openshift.svg",
         "link": "https://www.openshift.com/"
     },
     {
@@ -204,7 +204,7 @@ export const tools: Tool[] = [
             "FR": "Outil d'automatisation pour l'intégration et la livraison continues",
             "EN": "Automation tool for continuous integration and delivery"
         },
-        "image": "public/tools/deployment/jenkins.svg",
+        "image": "tools/jenkins.svg",
         "link": "https://www.jenkins.io/"
     },
     {
@@ -217,7 +217,7 @@ export const tools: Tool[] = [
             "FR": "Solution CI/CD intégrée à GitLab",
             "EN": "Integrated CI/CD solution within GitLab"
         },
-        "image": "public/tools/deployment/gitlab.svg",
+        "image": "tools/gitlab.svg",
         "link": "https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/"
     },
     {
@@ -230,7 +230,7 @@ export const tools: Tool[] = [
             "FR": "Automatisation des workflows directement depuis GitHub",
             "EN": "Workflow automation directly from GitHub"
         },
-        "image": "public/tools/deployment/github.svg",
+        "image": "tools/githubactions.svg",
         "link": "https://github.com/features/actions"
     },
     {
@@ -243,7 +243,7 @@ export const tools: Tool[] = [
             "FR": "Outil d'automatisation workflow",
             "EN": "Workflow automation tool"
         },
-        "image": "public/tools/deployment/n8n.svg",
+        "image": "tools/n8n.svg",
         "link": "https://n8n.io/"
     },
     {
@@ -256,7 +256,7 @@ export const tools: Tool[] = [
             "FR": "Outil pour connecter des applications et automatiser des workflows",
             "EN": "Tool to connect applications and automate workflows"
         },
-        "image": "public/tools/deployment/zapier.svg",
+        "image": "tools/zapier.svg",
         "link": "https://zapier.com/"
     },
     {
@@ -269,7 +269,7 @@ export const tools: Tool[] = [
             "FR": "Monitoring et tests pour les applications web modernes",
             "EN": "Monitoring and testing for modern web applications"
         },
-        "image": "public/tools/deployment/checkly.svg",
+        "image": "tools/checkly.svg",
         "link": "https://www.checklyhq.com/"
     },
     {
@@ -282,7 +282,7 @@ export const tools: Tool[] = [
             "FR": "Outil pour l'automatisation des tests de navigateurs web",
             "EN": "Tool for automating web browser tests"
         },
-        "image": "public/tools/test-security/selenium.svg",
+        "image": "tools/selenium.svg",
         "link": "https://www.selenium.dev/"
     },
     {
@@ -295,7 +295,7 @@ export const tools: Tool[] = [
             "FR": "Outil de test pour services web SOAP et REST",
             "EN": "Testing tool for SOAP and REST web services"
         },
-        "image": "public/tools/test-security/soap.svg",
+        "image": "tools/soapui.svg",
         "link": "https://www.soapui.org/"
     },
     {
@@ -308,7 +308,7 @@ export const tools: Tool[] = [
             "FR": "Plateforme pour le développement d'API",
             "EN": "Platform for API development"
         },
-        "image": "public/tools/test-security/postman.svg",
+        "image": "tools/postman.svg",
         "link": "https://www.postman.com/"
     },
     {
@@ -321,7 +321,7 @@ export const tools: Tool[] = [
             "FR": "Outil de test pour le web",
             "EN": "Web testing tool"
         },
-        "image": "public/tools/test-security/cypress.svg",
+        "image": "tools/cypress.svg",
         "link": "https://www.cypress.io/"
     },
     {
@@ -334,7 +334,7 @@ export const tools: Tool[] = [
             "FR": "Solution de sécurité et de qualité du code source",
             "EN": "Source code security and quality solution"
         },
-        "image": "public/tools/test-security/checkmarx.svg",
+        "image": "tools/checkmarx.svg",
         "link": "https://www.checkmarx.com/"
     },
     {
@@ -347,7 +347,7 @@ export const tools: Tool[] = [
             "FR": "Service cloud pour la qualité et la sécurité du code",
             "EN": "Cloud service for code quality and security"
         },
-        "image": "public/tools/test-security/sonarCloud.svg",
+        "image": "tools/sonarcloud.svg",
         "link": "https://sonarcloud.io/"
     },
     {
@@ -360,7 +360,7 @@ export const tools: Tool[] = [
             "FR": "Plateforme d'inspection continue de la qualité du code",
             "EN": "Continuous code quality inspection platform"
         },
-        "image": "public/tools/test-security/sonarQube.svg",
+        "image": "tools/sonarqube.svg",
         "link": "https://www.sonarqube.org/"
     },
     {
@@ -373,7 +373,7 @@ export const tools: Tool[] = [
             "FR": "Outil de suivi de projet et de gestion des problèmes",
             "EN": "Project tracking and issue management tool"
         },
-        "image": "public/tools/project/jira.svg",
+        "image": "tools/jira.svg",
         "link": "https://www.atlassian.com/software/jira"
     },
     {
@@ -386,7 +386,7 @@ export const tools: Tool[] = [
             "FR": "Application pour la prise de notes et la gestion de projet",
             "EN": "Note-taking and project management application"
         },
-        "image": "public/tools/project/notion.svg",
+        "image": "tools/notion.svg",
         "link": "https://www.notion.so/"
     },
     {
@@ -399,7 +399,7 @@ export const tools: Tool[] = [
             "FR": "Plateforme collaborative également utilisée pour la gestion de projet",
             "EN": "Collaborative platform also used for project management"
         },
-        "image": "public/tools/project/github.svg",
+        "image": "tools/github.svg",
         "link": "https://github.com/"
     },
     {
@@ -412,7 +412,7 @@ export const tools: Tool[] = [
             "FR": "Outil pour la planification agile et la gestion de livraison",
             "EN": "Tool for agile planning and delivery management"
         },
-        "image": "public/tools/project/versionOne.svg",
+        "image": "tools/versionOne.svg",
         "link": "https://www.collab.net/products/versionone"
     },
     {
@@ -425,7 +425,7 @@ export const tools: Tool[] = [
             "FR": "Plateforme de communication d'équipe et de collaboration",
             "EN": "Team communication and collaboration platform"
         },
-        "image": "public/tools/project/slack.svg",
+        "image": "tools/slack.svg",
         "link": "https://slack.com/"
     },
     {
@@ -438,7 +438,7 @@ export const tools: Tool[] = [
             "FR": "Plateforme cloud pour sites web et applications front-end",
             "EN": "Cloud platform for websites and front-end applications"
         },
-        "image": "public/tools/webhost/vercel.svg",
+        "image": "tools/vercel.svg",
         "link": "https://vercel.com/"
     },
     {
@@ -451,7 +451,7 @@ export const tools: Tool[] = [
             "FR": "Service cloud pour applications web et bases de données",
             "EN": "Cloud service for web applications and databases"
         },
-        "image": "public/tools/webhost/render.svg",
+        "image": "tools/render.svg",
         "link": "https://render.com/"
     },
     {
@@ -464,7 +464,7 @@ export const tools: Tool[] = [
             "FR": "Plateforme de base de données comme service",
             "EN": "Database as a service platform"
         },
-        "image": "public/tools/webhost/planetScale.svg",
+        "image": "tools/planetscale.svg",
         "link": "https://planetscale.com/"
     },
     {
@@ -477,7 +477,7 @@ export const tools: Tool[] = [
             "FR": "Outil de conception graphique et de prototypage d'interface",
             "EN": "Graphic design and interface prototyping tool"
         },
-        "image": "public/tools/ux/figma.svg",
+        "image": "tools/figma.svg",
         "link": "https://www.figma.com/"
     },
     {
@@ -490,7 +490,7 @@ export const tools: Tool[] = [
             "FR": "Outil pour créer des visuels de marque",
             "EN": "Tool to create brand visuals"
         },
-        "image": "public/tools/ux/brandBird.svg",
+        "image": "tools/brandBird.svg",
         "link": "https://www.brandbird.app/"
     },
     {
@@ -503,7 +503,7 @@ export const tools: Tool[] = [
             "FR": "Outil GUI pour MongoDB",
             "EN": "GUI tool for MongoDB"
         },
-        "image": "public/tools/database/mongoDB.svg",
+        "image": "tools/mongoDB.svg",
         "link": "https://www.mongodb.com/products/compass"
     },
     {
@@ -516,7 +516,7 @@ export const tools: Tool[] = [
             "FR": "Outil GUI pour MySQL",
             "EN": "GUI tool for MySQL"
         },
-        "image": "public/tools/database/mysql.svg",
+        "image": "tools/workbench.svg",
         "link": "https://www.mysql.com/products/workbench/"
     },
     {
@@ -529,7 +529,7 @@ export const tools: Tool[] = [
             "FR": "Outil de gestion pour SQL Server",
             "EN": "Management tool for SQL Server"
         },
-        "image": "public/tools/database/ssms.svg",
+        "image": "tools/ssms.svg",
         "link": "https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms"
     },
     {
@@ -542,7 +542,7 @@ export const tools: Tool[] = [
             "FR": "Plateforme de développement front-end",
             "EN": "Front-end development platform"
         },
-        "image": "public/tools/watch/codePen.svg",
+        "image": "tools/codePen.svg",
         "link": "https://codepen.io/"
     },
     {
@@ -555,7 +555,7 @@ export const tools: Tool[] = [
             "FR": "Plateforme d'apprentissage et de formation en ligne",
             "EN": "Online learning and training platform"
         },
-        "image": "public/tools/watch/udemy.svg",
+        "image": "tools/udemy.svg",
         "link": "https://www.udemy.com/"
     },
     {
@@ -568,7 +568,7 @@ export const tools: Tool[] = [
             "FR": "Site web d'éducation et de formation en ligne",
             "EN": "Online education and training website"
         },
-        "image": "public/tools/watch/openClassRoom.svg",
+            "image": "tools/openclassroom.svg",
         "link": "https://openclassrooms.com/"
     },
     {
@@ -581,7 +581,7 @@ export const tools: Tool[] = [
             "FR": "Plateforme de questions et réponses pour les développeurs",
             "EN": "Question and answer platform for developers"
         },
-        "image": "public/tools/watch/stackOverflow.svg",
+        "image": "tools/stackoverflow.svg",
         "link": "https://stackoverflow.com/"
     },
     {
@@ -594,7 +594,7 @@ export const tools: Tool[] = [
             "FR": "Réseau de communautés basé sur les intérêts",
             "EN": "Interest-based community network"
         },
-        "image": "public/tools/watch/reddit.svg",
+        "image": "tools/reddit.svg",
         "link": "https://www.reddit.com/"
     },
     {
@@ -607,7 +607,7 @@ export const tools: Tool[] = [
             "FR": "Magazine sur l'impact de la technologie",
             "EN": "Magazine focusing on the impact of technology"
         },
-        "image": "public/tools/watch/wired.svg",
+        "image": "tools/wired.svg",
         "link": "https://www.wired.com/"
     },
     {
@@ -620,7 +620,7 @@ export const tools: Tool[] = [
             "FR": "Série de conférences sur des sujets variés, y compris la technologie",
             "EN": "Series of talks on various subjects, including technology"
         },
-        "image": "public/tools/culture/ted.svg",
+        "image": "tools/ted.svg",
         "link": "https://www.ted.com/"
     },
     {
@@ -633,7 +633,7 @@ export const tools: Tool[] = [
             "FR": "Site d'actualités et de médias sur le jeu vidéo et la culture pop",
             "EN": "News and media site about video games and pop culture"
         },
-        "image": "public/tools/culture/polygon.svg",
+        "image": "tools/polygon.svg",
         "link": "https://www.polygon.com/"
     },
     {
@@ -646,7 +646,7 @@ export const tools: Tool[] = [
             "FR": "Plateforme sociale pour les actualités et les tendances tech",
             "EN": "Social platform for tech news and trends"
         },
-        "image": "public/tools/culture/x.svg",
+        "image": "tools/x.svg",
         "link": "https://twitter.com/"
     }
 ];
