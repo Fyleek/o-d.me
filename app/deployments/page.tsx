@@ -1,19 +1,139 @@
+"use client";
+import { TbCloudExclamation, TbCloudX, TbCloudCheck} from "react-icons/tb";
+import useSWR from "swr";
 import Image from "next/image";
 
-import Maintenance from "public/maintenance.svg";
+import fetcher from "@/lib/fetcher";
 
-export default function Deployments() {
+import { useLang } from "@/components/LanguageProvider";
+import { deployments, deploymentsTranslations } from "@/translations/deploymentsTranslations";
+
+interface ItemProps {
+  title: string;
+  description: {[key: string]: string};
+  status: string;
+  image: string;
+  githubLink: string;
+  lang: string;
+}
+
+export function GetStatus(url: string) {
+  const { data: statusData, error: statusDataError } = useSWR(
+    `/api/getStatus?url=${url}`,
+    fetcher
+  );
+  if (statusDataError) return "offline";
+  return "online";
+}
+
+const Item = ({ title, description, status, image, githubLink, lang}: ItemProps) => {
+  let statusColor = "bg-amber-400";
+  let StatusIcon = TbCloudX;
+
+  if (status === "online") {
+    statusColor = "bg-green-400";
+    StatusIcon = TbCloudCheck;
+  } else if (status === "offline") {
+    statusColor = "bg-red-400";
+    StatusIcon = TbCloudExclamation;
+  }
+
+  return (
+    <li className="flex gap-2 items-center transition-opacity">
+      <a
+        className="relative rounded-xl overflow-hidden bg-tertiary aspect-square w-[4rem] min-w-[4rem] h-[4rem] shadow"
+        href={githubLink}
+        target="_blank"
+      >
+        <Image
+          src={image ? image : "basic_picture.svg"}
+          alt={title}
+          className="object-center object-cover w-full h-full"
+          fill
+        />
+      </a>
+      <div className="grow flex justify-around gap-2 items-center">
+        <div className="space-y-1">
+          <h3 className="text-primary line-clamp-2 leading-tight font-medium">
+            {title}
+          </h3>
+          <p className="text-secondary line-clamp-3 leading-tight text-sm">
+            {description[lang]}
+          </p>
+        </div>
+        <div>
+          <a
+            className={`ml-auto text-xl rounded-full px-4 py-1 ${statusColor} h-fit`}
+          >
+            {StatusIcon && <StatusIcon className="inline mt-[-0.25em] h-[1.25em] w-[1.25em]"/>}
+          </a>
+        </div>
+        <div>
+          <a
+            className="ml-auto text-sm rounded-full px-4 py-1 bg-secondary h-fit"
+            href={githubLink}
+            target="_blank"
+          >
+            Code
+          </a>
+        </div>
+      </div>
+    </li>
+  );
+};
+
+export default function Tools() {
+  const { lang } = useLang();
+  const text = deploymentsTranslations[lang];
+
+  deployments.forEach(deployment => {
+    if(deployment.statusLink) {
+      deployment.status = GetStatus(deployment.statusLink);
+    }
+  });
+
   return (
     <>
       <div className="flex flex-col gap-16 md:gap-24">
         <div className="flex flex-col gap-8 animate-in">
-          <Image
-            src={Maintenance}
-            alt="maintenance"
-            width={1024}
-            height={1024}
-          />
+          <div>
+            <h1 className="animate-in text-3xl font-bold tracking-tight">
+              {text.title}
+            </h1>
+            <p
+              className="animate-in text-secondary"
+              style={{ "--index": 1 } as React.CSSProperties}
+            >
+              {text.subTitle}
+            </p>
+          </div>
+          <p
+            className="max-w-lg animate-in"
+            style={{ "--index": 2 } as React.CSSProperties}
+          >
+            {text.description}
+          </p>
         </div>
+        <section
+          className="flex flex-col gap-8 animate-in"
+          style={{ "--index": 3 } as React.CSSProperties}
+        >
+          <ul className="grid md:grid-cols-1 gap-x-6 gap-y-8 animated-list">
+            {deployments.map((item, index) => {
+              return (
+                <Item
+                  key={index}
+                  title={item.name}
+                  description={item.description}
+                  status={item.status ? item.status : "unuploaded"}
+                  image={item.image}
+                  githubLink={item.githubLink}
+                  lang={lang}
+                />
+              );
+            })}
+          </ul>
+        </section>
       </div>
     </>
   );
