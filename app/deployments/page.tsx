@@ -1,5 +1,6 @@
 "use client";
 import { TbCloudExclamation, TbCloudX, TbCloudCheck} from "react-icons/tb";
+import {FaGithub } from "react-icons/fa";
 import useSWR from "swr";
 import Image from "next/image";
 
@@ -52,32 +53,34 @@ const Item = ({ title, description, status, image, githubLink, lang}: ItemProps)
           fill
         />
       </a>
-      <div className="grow flex justify-around gap-2 items-center">
-        <div className="space-y-1">
-          <h3 className="text-primary line-clamp-2 leading-tight font-medium">
-            {title}
-          </h3>
-          <p className="text-secondary line-clamp-3 leading-tight text-sm">
-            {description[lang]}
-          </p>
+      <li>
+        <div className="grid grid-cols-3 gap-2 items-center">
+          <div className="space-y-1 col-span-1">
+            <h3 className="text-primary line-clamp-2 leading-tight font-medium">
+              {title}
+            </h3>
+            <p className="text-secondary line-clamp-3 leading-tight text-sm">
+              {description[lang]}
+            </p>
+          </div>
+          <div className="col-span-1">
+            <a
+              className={`text-xl rounded-full px-4 py-1 ${statusColor} h-fit`}
+            >
+              {StatusIcon && <StatusIcon className="inline mt-[-0.25em] h-[1.25em] w-[1.25em]"/>}
+            </a>
+          </div>
+          <div className="col-span-1">
+            <a
+              className="text-sm px-4 py-1 h-fit"
+              href={githubLink}
+              target="_blank"
+            >
+              <FaGithub className="inline h-[2em] w-[2em]"/>
+            </a>
+          </div>
         </div>
-        <div>
-          <a
-            className={`ml-auto text-xl rounded-full px-4 py-1 ${statusColor} h-fit`}
-          >
-            {StatusIcon && <StatusIcon className="inline mt-[-0.25em] h-[1.25em] w-[1.25em]"/>}
-          </a>
-        </div>
-        <div>
-          <a
-            className="ml-auto text-sm rounded-full px-4 py-1 bg-secondary h-fit"
-            href={githubLink}
-            target="_blank"
-          >
-            Code
-          </a>
-        </div>
-      </div>
+      </li>
     </li>
   );
 };
