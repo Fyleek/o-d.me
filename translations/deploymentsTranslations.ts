@@ -32,7 +32,7 @@ export const deployments: Deployment[] = [
         "statusLink": "https://render-api-gi2s.onrender.com",
         "status": "pending",
         "githubLink": "https://github.com/Fyleek/render-api",
-        "image": ""
+        "image": "/deployments/renderAPI.svg"
     },
     {
         "name": "Finapi",
@@ -53,6 +53,6 @@ export const deployments: Deployment[] = [
         "statusLink": "https://o-d.me/",
         "status": "pending",
         "githubLink": "https://github.com/Fyleek/o-d.me",
-        "image": ""
+        "image": "/deployments/portfolio.svg"
     }
 ];
