@@ -1,17 +1,20 @@
 "use client";
-import { TbCloudExclamation, TbCloudX, TbCloudCheck} from "react-icons/tb";
-import {FaGithub } from "react-icons/fa";
+import { TbCloudExclamation, TbCloudX, TbCloudCheck } from "react-icons/tb";
+import { FaGithub } from "react-icons/fa";
 import useSWR from "swr";
 import Image from "next/image";
 
 import fetcher from "@/lib/fetcher";
 
 import { useLang } from "@/components/LanguageProvider";
-import { deployments, deploymentsTranslations } from "@/translations/deploymentsTranslations";
+import {
+  deployments,
+  deploymentsTranslations,
+} from "@/translations/deploymentsTranslations";
 
 interface ItemProps {
   title: string;
-  description: {[key: string]: string};
+  description: { [key: string]: string };
   status: string;
   image: string;
   githubLink: string;
@@ -27,7 +30,14 @@ export function GetStatus(url: string) {
   return "online";
 }
 
-const Item = ({ title, description, status, image, githubLink, lang}: ItemProps) => {
+const Item = ({
+  title,
+  description,
+  status,
+  image,
+  githubLink,
+  lang,
+}: ItemProps) => {
   let statusColor = "bg-amber-400";
   let StatusIcon = TbCloudX;
 
@@ -42,45 +52,43 @@ const Item = ({ title, description, status, image, githubLink, lang}: ItemProps)
   return (
     <li className="flex gap-2 items-center transition-opacity">
       <a
-        className="relative rounded-xl overflow-hidden bg-tertiary aspect-square w-[4rem] min-w-[4rem] h-[4rem] shadow"
+        className="flex-none relative rounded-xl overflow-hidden bg-tertiary aspect-square w-[4rem] min-w-[4rem] h-[4rem] shadow"
         href={githubLink}
         target="_blank"
       >
         <Image
-          src={image ? image : "basic_picture.svg"}
+          src={image ? image : "/deployments/basicPicture.svg"}
           alt={title}
           className="object-center object-cover w-full h-full"
           fill
         />
       </a>
-      <li>
-        <div className="grid grid-cols-3 gap-2 items-center">
-          <div className="space-y-1 col-span-1">
-            <h3 className="text-primary line-clamp-2 leading-tight font-medium">
-              {title}
-            </h3>
-            <p className="text-secondary line-clamp-3 leading-tight text-sm">
-              {description[lang]}
-            </p>
-          </div>
-          <div className="col-span-1">
-            <a
-              className={`text-xl rounded-full px-4 py-1 ${statusColor} h-fit`}
-            >
-              {StatusIcon && <StatusIcon className="inline mt-[-0.25em] h-[1.25em] w-[1.25em]"/>}
-            </a>
-          </div>
-          <div className="col-span-1">
-            <a
-              className="text-sm px-4 py-1 h-fit"
-              href={githubLink}
-              target="_blank"
-            >
-              <FaGithub className="inline h-[2em] w-[2em]"/>
-            </a>
-          </div>
+      <div className="flex items-center">
+        <div className="flex-auto w-[16rem] min-w-[8rem]">
+          <h3 className="text-primary line-clamp-2 leading-tight font-medium">
+            {title}
+          </h3>
+          <p className="text-secondary line-clamp-3 leading-tight text-sm">
+            {description[lang]}
+          </p>
         </div>
-      </li>
+        <div className="flex-auto w-[16rem] min-w-[8rem]">
+          <a className={`text-xl rounded-full px-4 py-1 ${statusColor} h-fit`}>
+            {StatusIcon && (
+              <StatusIcon className="inline mt-[-0.25em] h-[1.25em] w-[1.25em]" />
+            )}
+          </a>
+        </div>
+        <div className="flex-auto">
+          <a
+            className="text-sm px-4 py-1 h-fit"
+            href={githubLink}
+            target="_blank"
+          >
+            <FaGithub className="inline h-[2em] w-[2em]" />
+          </a>
+        </div>
+      </div>
     </li>
   );
 };
@@ -89,8 +97,8 @@ export default function Tools() {
   const { lang } = useLang();
   const text = deploymentsTranslations[lang];
 
-  deployments.forEach(deployment => {
-    if(deployment.statusLink) {
+  deployments.forEach((deployment) => {
+    if (deployment.statusLink) {
       deployment.status = GetStatus(deployment.statusLink);
     }
   });
