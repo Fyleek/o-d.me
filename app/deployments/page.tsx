@@ -50,7 +50,7 @@ const Item = ({
   }
 
   return (
-    <li className="flex gap-2 items-center transition-opacity">
+    <li className="flex gap-3 items-center transition-opacity">
       <a
         className="flex-none relative rounded-xl overflow-hidden bg-tertiary aspect-square w-[4rem] min-w-[4rem] h-[4rem] shadow"
         href={githubLink}
@@ -63,8 +63,8 @@ const Item = ({
           fill
         />
       </a>
-      <div className="flex items-center">
-        <div className="flex-auto w-[16rem] min-w-[8rem]">
+      <div className="flex gap-3 items-center">
+        <div className="flex-auto w-[30rem] min-w-[8rem]">
           <h3 className="text-primary line-clamp-2 leading-tight font-medium">
             {title}
           </h3>
@@ -72,7 +72,7 @@ const Item = ({
             {description[lang]}
           </p>
         </div>
-        <div className="flex-auto w-[16rem] min-w-[8rem]">
+        <div className="flex-auto">
           <a className={`text-xl rounded-full px-4 py-1 ${statusColor} h-fit`}>
             {StatusIcon && (
               <StatusIcon className="inline mt-[-0.25em] h-[1.25em] w-[1.25em]" />
