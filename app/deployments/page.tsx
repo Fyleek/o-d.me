@@ -21,7 +21,7 @@ interface ItemProps {
   lang: string;
 }
 
-export function GetStatus(url: string) {
+function GetStatus(url: string) {
   const { data: statusData, error: statusDataError } = useSWR(
     `/api/getStatus?url=${url}`,
     fetcher
@@ -93,7 +93,7 @@ const Item = ({
   );
 };
 
-export default function Tools() {
+export default function Deployments() {
   const { lang } = useLang();
   const text = deploymentsTranslations[lang];
 
