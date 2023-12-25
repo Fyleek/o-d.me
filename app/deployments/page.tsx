@@ -102,7 +102,6 @@ export default function Deployments() {
       deployment.status = GetStatus(deployment.statusLink);
     }
   });
-
   return (
     <>
       <div className="flex flex-col gap-16 md:gap-24">
