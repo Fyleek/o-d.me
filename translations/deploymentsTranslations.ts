@@ -26,8 +26,8 @@ export const deployments: Deployment[] = [
     {
         "name": "Render-API",
         "description": {
-            "FR": "Test-FR",
-            "EN": "Test-EN"
+            "FR": "CI/CD pour les statuts de déploiement entre Render et Github",
+            "EN": "CI/CD for deployment statuses between Render and Github"
         },
         "statusLink": "https://render-api-gi2s.onrender.com",
         "status": "pending",
@@ -37,8 +37,8 @@ export const deployments: Deployment[] = [
     {
         "name": "Finapi",
         "description": {
-            "FR": "Test-FR",
-            "EN": "Test-EN"
+            "FR": "API pour une utilisations externe de vos portfeuille finary",
+            "EN": "API for external use of your finary wallets"
         },
         "statusLink": "",
         "githubLink": "https://github.com/Fyleek/finapi",
@@ -47,8 +47,8 @@ export const deployments: Deployment[] = [
     {
         "name": "Portfolio",
         "description": {
-            "FR": "Test-FR",
-            "EN": "Test-EN"
+            "FR": "Mon site personnel avec mes blogs (vous y êtes actuellement !)",
+            "EN": "My personal website with my blogs (your are currently on it !)"
         },
         "statusLink": "https://o-d.me/",
         "status": "pending",
