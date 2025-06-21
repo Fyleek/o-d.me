@@ -21,7 +21,7 @@ This made reading the code, reviewing PRs, and understanding diffs unnecessarily
 * Support nested structures,
 * Allow configuring sub-orders for child objects.
 
-That’s how **`@hacksis/eslint-plugin-sort-object-keys`** was born — a custom ESLint rule I developed and that we now use in production.
+That’s how **`@company/eslint-plugin-sort-object-keys`** was born — a custom ESLint rule I developed and that we now use in production.
 
 ## General Functionality
 
@@ -123,7 +123,7 @@ Example ESLint configuration:
 
 ```json
 "rules": {
-    "@hacksis/sort-object-keys": ["error", [
+    "@company/sort-object-keys": ["error", [
         {
             "typeName": "User",
             "order": ["id", "name", "email", {

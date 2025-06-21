@@ -25,7 +25,7 @@ Since it no longer requires third-party installation, is native, and better inte
 
 It allows you to install, update, and uninstall applications in a simple and automated way via PowerShell or Command Prompt.
 
-```powershell showLineNumbers {1-4}
+```powershell showLineNumbers {2,5,8}
 # Install a package
 winget install <package_identifier>
 
@@ -46,7 +46,7 @@ The only prerequisite is to have **Windows 10 (1809+)** or **Windows 11**, with 
 
 Here’s an example of checking and automating software installation:
 
-```powershell showLineNumbers {3}
+```powershell showLineNumbers {5-7}
 # Check that winget is installed
 winget --version
 
@@ -58,7 +58,7 @@ winget install --id=Docker.DockerDesktop --accept-source-agreements --accept-pac
 
 And to keep my software up to date:
 
-```powershell showLineNumbers {1}
+```powershell showLineNumbers {2}
 # Update all installed applications
 winget upgrade --all --accept-source-agreements --accept-package-agreements
 ```

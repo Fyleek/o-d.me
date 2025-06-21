@@ -21,7 +21,7 @@ Cela compliquait la lecture, les PRs, et rendait les diff inutiles bruyants. Auc
 - Supporter les structures imbriquées,
 - Permettre de configurer des sous-ordres pour les enfants.
 
-C'est ainsi qu'est né **`@hacksis/eslint-plugin-sort-object-keys`**, une règle ESLint spécifique que j'ai développée et que nous utilisons en production.
+C'est ainsi qu'est né **`@company/eslint-plugin-sort-object-keys`**, une règle ESLint spécifique que j'ai développée et que nous utilisons en production.
 
 ## Fonctionnement général
 
@@ -123,7 +123,7 @@ Exemple de configuration ESLint :
 
 ```json
 "rules": {
-    "@hacksis/sort-object-keys": ["error", [
+    "@company/sort-object-keys": ["error", [
         {
             "typeName": "User",
             "order": ["id", "name", "email", {

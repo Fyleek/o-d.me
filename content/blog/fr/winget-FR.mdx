@@ -25,7 +25,7 @@ Ne nécessitant plus d'installation tierce, étant natif et mieux intégré au s
 
 Il permet d'installer, mettre à jour et désinstaller des applications de manière simple et automatisée via PowerShell ou l'invite de commande.
 
-```powershell showLineNumbers {1-4}
+```powershell showLineNumbers {2,5,8}
 # Installer un package
 winget install <identifiant_du_package>
 
@@ -46,7 +46,7 @@ Le seul prérequis est de disposer de **Windows 10 (1809+)** ou **Windows 11**, 
 
 Voici un exemple de vérification et d'installation automatisée de logiciels :
 
-```powershell showLineNumbers {3}
+```powershell showLineNumbers {5-7}
 # Vérifier que winget est installé
 winget --version
 
@@ -58,7 +58,7 @@ winget install --id=Docker.DockerDesktop --accept-source-agreements --accept-pac
 
 Et pour maintenir mes logiciels à jour :
 
-```powershell showLineNumbers {1}
+```powershell showLineNumbers {2}
 # Mise à jour de tous les logiciels
 winget upgrade --all --accept-source-agreements --accept-package-agreements
 ```
