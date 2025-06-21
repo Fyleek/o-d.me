@@ -1,0 +1,173 @@
+---
+title: "EslintSortObjectKeys : Une extension ESLint pour imposer l'ordre des clés d'objet personnalisées"
+publishedAt: "2025-02-19"
+summary: "Découverte d'une extension ESLint maison qui permet de garantir un ordre cohérent et personnalisable des clés d'objet dans le code TypeScript."
+tags:
+- ESLint
+- TypeScript
+- Linter
+- Quality
+- Open Source
+shortTitle: EslintSortObjectKeys
+---
+
+## Pourquoi ai-je démarré ce projet ?
+
+Dans mon entreprise, nous avions souvent des divergences sur l'ordre des propriétés des objets dans le code TypeScript.
+
+Cela compliquait la lecture, les PRs, et rendait les diff inutiles bruyants. Aucun plugin ESLint n'était capable de répondre pleinement à notre besoin :
+
+- Avoir un ordre personnalisable défini selon le type de l'objet,
+- Supporter les structures imbriquées,
+- Permettre de configurer des sous-ordres pour les enfants.
+
+C'est ainsi qu'est né **`@company/eslint-plugin-sort-object-keys`**, une règle ESLint spécifique que j'ai développée et que nous utilisons en production.
+
+## Fonctionnement général
+
+L'extension ajoute une règle ESLint personnalisée `sort-object-keys` qui vérifie l'ordre des clés des objets selon un schéma prédéfini.
+
+Elle repose sur deux concepts clés :
+
+1. **Comparaison d'ordre attendu** : on compare l'ordre effectif des propriétés avec l'ordre attendu.
+2. **Support des structures imbriquées** : la vérification est récursive sur les objets enfants.
+
+## API et interfaces clés
+
+### 1. Interfaces de configuration
+
+```typescript
+export interface RuleOptions {
+    typeName: string;
+    order: (string | RuleSubOptions)[];
+    children?: string;
+}
+
+export interface RuleSubOptions {
+    typeName: string;
+    order: (string | RuleSubOptions)[];
+}
+
+export type MessageIds = 'incorrectOrder';
+```
+
+### 2. Comparaison des tableaux : `areArraysEqual`
+
+Permet de comparer deux tableaux de clés :
+
+```typescript
+export function areArraysEqual(array1: string[], array2: string[]): boolean {
+    if (array1.length !== array2.length) return false;
+    for (let i = 0; i < array1.length; i++) {
+        if (array1[i] !== array2[i]) return false;
+    }
+    return true;
+}
+```
+
+### 3. Résolution de l'ordre attendu : `resolveExpectedOrder`
+
+Permet de générer dynamiquement l'ordre attendu des propriétés, en gérant les sous-ordres imbriqués :
+
+```typescript
+export function resolveExpectedOrder(order: (string | RuleSubOptions)[]): string[] {
+    const resolvedEntries = new Set<string>();
+    order.forEach(entry => {
+        if (typeof entry === 'string') {
+            resolvedEntries.add(entry);
+        } else {
+            resolvedEntries.add(entry.typeName);
+            resolveExpectedOrder(entry.order).forEach(subEntry => resolvedEntries.add(subEntry));
+        }
+    });
+    return Array.from(resolvedEntries);
+}
+```
+
+## Intégration dans la règle ESLint
+
+La méthode clé est `checkObjectOrder`, qui :
+
+* Récupère les propriétés présentes dans l'objet,
+* Les compare à l'ordre attendu,
+* Génère un report si l'ordre n'est pas respecté,
+* Gère les structures imbriquées et les tableaux d'enfants.
+
+Exemple simplifié :
+
+```typescript
+function checkObjectOrder(node, parentTypeName, typeName, expectedOrder, childrenKey) {
+    const resolvedOrder = resolveExpectedOrder(expectedOrder);
+    const actualKeys = node.properties
+        .filter(prop => prop.type === 'Property' && prop.key.type === 'Identifier')
+        .map(prop => prop.key.name)
+        .filter(key => resolvedOrder.includes(key));
+
+    const filteredExpectedOrder = resolvedOrder.filter(key => actualKeys.includes(key));
+
+    if (actualKeys.length > 1 && !areArraysEqual(filteredExpectedOrder, actualKeys)) {
+        context.report({
+            node,
+            messageId: 'incorrectOrder',
+            data: { typeName, parentTypeName, expectedOrder: filteredExpectedOrder.join(', ') }
+        });
+    }
+
+    // Gestion récursive des sous-objets...
+}
+```
+
+## Cas d'usage typique
+
+Exemple de configuration ESLint :
+
+```json
+"rules": {
+    "@company/sort-object-keys": ["error", [
+        {
+            "typeName": "User",
+            "order": ["id", "name", "email", {
+                "typeName": "address",
+                "order": ["street", "city", "zip"]
+            }]
+        }
+    ]]
+}
+```
+
+Ce qui garantit que :
+
+```typescript
+const user: User = {
+    id: 1,
+    name: 'John',
+    email: 'john@example.com',
+    address: {
+        street: '123 Main St',
+        city: 'Paris',
+        zip: '75001'
+    }
+};
+```
+
+respectera toujours l'ordre attendu.
+
+Stack de dev :
+
+* TypeScript 5.7+
+* ESLint 9.20+
+* Vitest pour les tests
+
+## Finalité
+
+Ce projet répond parfaitement à notre besoin en interne :
+
+* Conventions homogènes dans les projets,
+* Lisibilité améliorée,
+* Réduction des conflits de merge,
+* Contrôle avancé des structures imbriquées.
+
+Pour le moment, nous testons le plugin en interne afin de valider son bon fonctionnement. 
+Une fois cette phase terminée, je le transférerai sur mon dépôt personnel et le publierai officiellement sur les registres de packages (npm, yarn) pour qu'il soit accessible à tous.
+
+Bonne automatisation du code 🚀 !
